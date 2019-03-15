@@ -1,5 +1,6 @@
 CFLAGS=-Wall -g 
-LDFLAGS=-Wall -g -lpthread
+#LDFLAGS=-Wall -g -lpthread
+LDFLAGS=-Wall -g -pthread
 
 COMPILE=g++ $(CFLAGS) -c
 LINK=g++ $(LDFLAGS) -o
