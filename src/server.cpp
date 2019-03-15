@@ -108,7 +108,7 @@ void *Server::HandleClient(void *args) {
     else {
       //Message received. Send to all clients.
       snprintf(message, sizeof message, "<%s>: %s", c->name, buffer); 
-      cout << "\nWill send to all: " << message << endl;
+      cout << "\n\nWill send to all: " << message << endl;
       Server::SendToAll(message);
     }
   }
