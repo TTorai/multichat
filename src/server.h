@@ -36,7 +36,8 @@ class Server {
   private:
     static void ListClients();
     static void SendToAll(char *message);
-    static int FindClientIndex(Client *c); 
+    static int FindClientIndex(Client *c);
+    static int FindClientName(char *c);
 };
 
 #endif
