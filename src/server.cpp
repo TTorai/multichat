@@ -76,6 +76,7 @@ void *Server::HandleClient(void *args) {
     cout << "Before adding the new client: Server::clients.size(): " << Server::clients.size() << endl;
 Server::ListClients();
     c->SetId(Server::clients.size());
+//    sprintf(buffer, "Client n.%d", Server::clients.size());
     sprintf(buffer, "Client n.%d", c->id);
     c->SetName(buffer);
 //    cout << "Adding client with id: " << c->id << endl;
