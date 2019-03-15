@@ -137,6 +137,7 @@ void Server::SendToAll(char *message) {
 }
 
 void Server::ListClients() {
+  cout << "Listing yet existing client names:" << endl;
   for(size_t i=0; i<clients.size(); i++) {
     cout << clients.at(i).name << endl;
   }
