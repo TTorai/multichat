@@ -80,7 +80,7 @@ Server::ListClients();
     c->SetName(buffer);
 //    cout << "Adding client with id: " << c->id << endl;
     Server::clients.push_back(*c);
-    cout << "Adding client with name: " << c->name << ", id: " << c->id << " at index position: " << Server::FindClientIndex(c) << endl;
+    cout << "Creating a client with name: " << c->name << ", id: " << c->id << " at index position: " << Server::FindClientIndex(c) << endl;
     cout << "New number of active clients: " << Server::clients.size() << endl;
 
   MyThread::UnlockMutex((const char *) c->name);
