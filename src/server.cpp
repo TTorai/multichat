@@ -76,11 +76,11 @@ void *Server::HandleClient(void *args) {
     cout << "Before adding the new client: Server::clients.size(): " << Server::clients.size() << endl;
 Server::ListClients();
     c->SetId(Server::clients.size());
+    Server::clients.push_back(*c);
     sprintf(buffer, "Client n.%d", Server::clients.size());
 //    sprintf(buffer, "Client n.%d", c->id);
     c->SetName(buffer);
 //    cout << "Adding client with id: " << c->id << endl;
-    Server::clients.push_back(*c);
     cout << "Creating a client with name: " << c->name << ", id: " << c->id << " at index position: " << Server::FindClientIndex(c) << endl;
     cout << "New number of active clients: " << Server::clients.size() << endl;
 
