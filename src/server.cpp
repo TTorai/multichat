@@ -73,6 +73,7 @@ void *Server::HandleClient(void *args) {
   MyThread::LockMutex((const char *) c->name);
   
     //Before adding the new client, calculate its id. (Now we have the lock)
+    cout << "Before adding the new client: Server::clients.size(): " << Server::clients.size() << endl;
     c->SetId(Server::clients.size());
     sprintf(buffer, "Client n.%d", c->id);
     c->SetName(buffer);
