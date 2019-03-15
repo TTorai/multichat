@@ -79,6 +79,7 @@ void *Server::HandleClient(void *args) {
 //    cout << "Adding client with id: " << c->id << endl;
     Server::clients.push_back(*c);
     cout << "Adding client with id: " << c->id << " at index position: " << Server::FindClientIndex(c) << endl;
+    cout << "New number of active clients: " << Server::clients.size() << endl;
 
   MyThread::UnlockMutex((const char *) c->name);
 
@@ -97,6 +98,7 @@ void *Server::HandleClient(void *args) {
         index = Server::FindClientIndex(c);
         cout << "Erasing user in position " << index << " whose name id is: " << Server::clients[index].id << endl;
         Server::clients.erase(Server::clients.begin() + index);
+	cout << "New number of active clients: " << Server::clients.size() << endl;
 
       MyThread::UnlockMutex((const char *) c->name);
 
