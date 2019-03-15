@@ -78,7 +78,7 @@ void *Server::HandleClient(void *args) {
     c->SetName(buffer);
 //    cout << "Adding client with id: " << c->id << endl;
     Server::clients.push_back(*c);
-    cout << "Adding client with id: " << c->id << "at index position: " << Server::FindClientIndex(c) << endl;
+    cout << "Adding client with id: " << c->id << " at index position: " << Server::FindClientIndex(c) << endl;
 
   MyThread::UnlockMutex((const char *) c->name);
 
