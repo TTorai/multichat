@@ -72,15 +72,17 @@ void *Server::HandleClient(void *args) {
   //Add client in Static clients <vector> (Critical section!)
   MyThread::LockMutex((const char *) c->name);
   
-    //Before adding the new client, calculate its id. (Now we have the lock)
-    cout << "Before adding the new client: Server::clients.size(): " << Server::clients.size() << endl;
-Server::ListClients();
+    //Before adding the new client, calculate its id. (Now that we have the lock)
+    cout << "\nBefore adding the new client:" << endl;
     c->SetId(Server::clients.size());
-    Server::clients.push_back(*c);
     sprintf(buffer, "Client n.%d", Server::clients.size());
-//    sprintf(buffer, "Client n.%d", c->id);
+		while (Server::FindClientName(buffer) == -1)
+		{
+			cout << "Client name already exists. Give it a random name" << endl;
+			sprintf(buffer, "random name.%d", rand() % 100);
+		}
+    Server::clients.push_back(*c);
     c->SetName(buffer);
-//    cout << "Adding client with id: " << c->id << endl;
     cout << "Creating a client with name: " << c->name << ", id: " << c->id << " at index position: " << Server::FindClientIndex(c) << endl;
     cout << "New number of active clients: " << Server::clients.size() << endl;
 
@@ -140,8 +142,9 @@ void Server::SendToAll(char *message) {
 void Server::ListClients() {
   cout << "Listing yet existing client names:" << endl;
   for(size_t i=0; i<clients.size(); i++) {
-    cout << clients.at(i).name << endl;
+    cout << "ID: " << clients.at(i).id << ", name: "<< clients.at(i).name << endl;
   }
+  cout << endl;
 }
 
 /*
@@ -153,4 +156,20 @@ int Server::FindClientIndex(Client *c) {
   }
   cerr << "Client id not found." << endl;
   return -1;
+}
+
+/*
+  Should be called when vector<Client> clients is locked!
+*/
+int Server::FindClientName(char *c) {
+	Server::ListClients();
+	cout << "Looking for client name: " << c << endl;
+  for(size_t i=0; i<clients.size(); i++) {
+		if (strcmp (Server::clients[i].name,c) == 0)
+		{
+			return -1;
+		}
+  }
+  cout << "Client name not found." << endl;
+  return 0;
 }
