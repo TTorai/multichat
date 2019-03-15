@@ -87,7 +87,7 @@ void *Server::HandleClient(void *args) {
 
     //Client disconnected?
     if(n == 0) {
-      cout << "Client " << c->name << " diconnected" << endl;
+      cout << "Client " << c->name << " disconnected" << endl;
       close(c->sock);
       
       //Remove client in Static clients <vector> (Critical section!)
