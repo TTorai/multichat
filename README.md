@@ -1,4 +1,4 @@
-Hosted at https://github.com/rbaron/multichat
+Forked from https://github.com/rbaron/multichat
 
 multichat - a simple linux multiclient and multithreaded socket server in C++
 =============================================================================
