@@ -94,8 +94,7 @@ void *Server::HandleClient(void *args) {
       MyThread::LockMutex((const char *) c->name);
 
         index = Server::FindClientIndex(c);
-        cout << "Erasing user in position " << index << " whose name id is: " 
-	  << Server::clients[index].id << endl;
+        cout << "Erasing user in position " << index << " whose name id is: " << Server::clients[index].id << endl;
         Server::clients.erase(Server::clients.begin() + index);
 
       MyThread::UnlockMutex((const char *) c->name);
