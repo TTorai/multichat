@@ -91,8 +91,10 @@ Hello from netcat!
 -Check threads with
 ```
 watch ps -C chat -L
-
 ```
+
+-if connecting from Putty:
+"Local line editing" in "Terminal" panel has to be enabled.
 
 License
 -------
