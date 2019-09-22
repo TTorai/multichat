@@ -60,7 +60,7 @@ g++ -Wall -g  -c src/server.cpp -o obj/server.o
 g++ -Wall -g  -c src/client.cpp -o obj/client.o
 g++ -Wall -g -lpthread -o ./bin/chat ./obj/main.o ./obj/mythread.o ./obj/server.o ./obj/client.o
 
-> $ ./bin/chat 
+> $ 0bin/chat 
 Running!
 Mutex initialized.
 ```
