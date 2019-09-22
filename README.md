@@ -70,7 +70,7 @@ Mutex initialized.
 * telnet:
 
 ```
-> $ telnet 127.0.0.1 30666
+> $ telnet 127.0.0.1 30777
 Trying 127.0.0.1...
 Connected to 127.0.0.1.
 Escape character is '^]'.
@@ -79,10 +79,12 @@ Hello from telnet!
 <Client n.1>: Hello from netcat!
 ```
 
+On Android i recommend "TCP Telnet Terminal V1.13" from Author mightyIT.
+
 * netcat:
 
 ```
-> $ netcat 127.0.0.1 30666
+> $ netcat 127.0.0.1 30777
 <Client n.0>: Hello from telnet!
 Hello from netcat!
 <Client n.1>: Hello from netcat!
