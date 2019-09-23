@@ -2,10 +2,8 @@
 #include "mythread.h"
 #include "server.h"
 
-using namespace std;
-
 int main() {
-  cout << "Running!" << endl;
+  std::cout << "Running!" << std::endl;
 
   Server *s;
   s = new Server();
