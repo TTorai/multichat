@@ -46,7 +46,8 @@ int MyThread::InitMutex() {
 		Blocks until mutex becomes available
 */
 int MyThread::LockMutex(const char *identifier) {
-  cout << identifier << " is trying to acquire the lock..." << endl;
+  cout << identifier << " is trying to acquire the lock... ";
+  //<< endl;
   if(pthread_mutex_lock(&MyThread::mutex) == 0) {
     cout << identifier << " acquired the lock!" << endl;
     return 0;
@@ -58,7 +59,7 @@ int MyThread::LockMutex(const char *identifier) {
 }
 
 int MyThread::UnlockMutex(const char *identifier) {
-  cout << identifier << " is trying to release the lock..." << endl;
+  cout << identifier << " is trying to release the lock... ";
   if(pthread_mutex_unlock(&MyThread::mutex) == 0) {
     cout << identifier << " released the lock!" << endl;
     return 0;
